@@ -1,3 +1,7 @@
+#### About
+
+These are notes for Bumford and Charlow's 2025 Effect Driven Intepretation.
+
 #### Setup
 
 To install ghc, see https://www.haskell.org/ghcup/install/.

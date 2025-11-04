@@ -409,7 +409,7 @@
           \includegraphics[width=10cm]{clips/29.png}
         \end{center}
     \end{exe}
-  \item And another is to introduce a higher order mode of combination. Whenever there is a mode (∗) that might combine
+  \item And another is to introduce a higher order mode of combination. Whenever there is a mode ($\oast$) that might combine
   constituents $M :: \sigma$ and $N :: \tau$, then there should also be a mode to combine constituents $M' :: \Sigma\sigma$
   and $N' :: \Sigma\tau$, so long as $\Sigma$ is an applicative functor.
     \begin{exe}
@@ -542,8 +542,101 @@
     \end{exe}
 \end{itemize}
 
+\section{Monads}
+
+\subsection{Motivation}
+
+
+\begin{itemize}
+  \item Just as there are closure operators that \textit{eliminate} effects, there are counterpart
+  operations that \textit{introduce} effects. Operators with these types are known as Kleisli arrows,
+  while closure operators are known as co-Kleisli arrows.
+
+  \begin{exe}
+    \ex Determiners in the guise of Kleisli arrows\hfill \begin{center}
+      \includegraphics[width=12cm]{clips/48.png}
+    \end{center}
+  \end{exe}
+
+  \item The grammar so far is able to compose these operators.
+  
+  \begin{exe}
+    \ex DP Internal Composition \hfill \begin{center}
+      \includegraphics[width=12cm]{clips/49.png}
+    \end{center}
+  \end{exe}
+
+  \item Up to a point, it can also compose doubly effectful determiners, for instance
+    determiners whose restrictions are themselves effectful.
+
+    \begin{exe}
+      \ex Doubly Effectful DP Composition \hfill \begin{center}
+        \includegraphics[width=12cm]{clips/50.png}
+      \end{center}
+    \end{exe}
+
+  \item But whereas applicative functors allowed us to collapse higher order effects
+    into singly layered effects, Kleisli arrows appear to introduce stubbornly higher order effects.
+  \item For the $RS$ DP in (51), this is unsurprising, since the effects are different. 
+  But it's less clear why we shouldn't be able to reduce the $SS$ DP into a simple $S$ type,
+  representing the set of all linguists from state schools. Nevertheless, it's just a fact about
+  the grammar so far: there's no operation that will do it for us.
+
+  \item It is illustrative to directly compare a derivation in which the applicative structure
+    is collapsible to one in which it isn't. We see that the culprit is the Kleisli arrow.
+
+  \begin{exe}
+    \ex Applicative vs Kleisli structures \hfill \begin{center}
+      \includegraphics[width=12cm]{clips/51.png}
+    \end{center}
+  \end{exe}
+
+  \item ``This predicts that an otherwise unselective closure operator will, extraor- dinarily, fail to capture effects that happen to be nested in the arguments of Kleisli arrows. For instance, assuming as in Chapter 3 that the antecedent of a conditional is associated with an existential closure operator, the current state of affairs predicts that a nested indefinite will necessarily take exceptional scope over the conditional.''
+
+  \begin{exe}
+    \ex \hfill \begin{center}
+      \includegraphics[width=12cm]{clips/52.png}
+    \end{center}
+  \end{exe}
+
+  \item We can construct somewhat parallel examples with free choice introducing and eliminating operators,
+    e.g. ``can'' and ``any''.
+    \begin{exe}
+      \ex \hfill \begin{center}
+        \includegraphics[width=6cm]{clips/53.png}
+      \end{center}
+    \end{exe}
+
+  \item For the sentence ``Mary can eat any apple on any blanket'', we're only able to flatten effects that are introduced
+    with a particular PP attachment site.
+  \begin{exe}
+    \ex \hfill \begin{center}
+      \includegraphics[width=10cm]{clips/55.png}
+    \end{center}
+    \ex \hfill \begin{center}
+      \includegraphics[width=10cm]{clips/54.png}
+    \end{center}
+  \end{exe}
+
+  \item The H\&K abstraction operator will behave like a Kleisli arrow when its complement contains an effect.
+  \begin{exe}
+    \ex \hfill \begin{center}
+      \includegraphics[width=4.5cm]{clips/56.png}
+    \end{center}
+  \end{exe}
+
+  \item In (58), for instance, the inner $SS$ cannot be reduced to a set of pairs of people and things in the eating relation.
+  \begin{exe}
+    \ex \hfill \begin{center}
+      \includegraphics[width=8cm]{clips/57.png}
+    \end{center}
+  \end{exe}
+
+\end{itemize}
+
+
 \pagebreak
 
-\bibliography{../refs}
+\bibliography{refs}
 
 \end{document}
